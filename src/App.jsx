@@ -14,17 +14,35 @@ function App() {
     
     // if Login... else signup...
 
-    const response = await fetch('http://localhost:3000/api/users/signup', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "email": "omgGGGG@x.com",
-        "username": "frontend!",
-        "password": "44444444"
-    })});
+    let response;
+    if (isSignup) {
+      console.log('signup')
+      response = await fetch('http://localhost:3000/api/users/signup', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "email": "newfrontend@x.com",
+          "username": "frontend!",
+          "password": "123456789"
+      })});
+    } else {
+      console.log('login')
+      response = await fetch('http://localhost:3000/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "email": "newfrontend@x.com",
+          "password": "123456789"
+      })});
+    }
+
+  
     const user = await response.json()
 
     console.log(user)
