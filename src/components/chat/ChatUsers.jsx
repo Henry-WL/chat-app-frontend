@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function ChatUsers() {
+function ChatUsers(props) {
   const [chatUsers, setChatUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -20,7 +20,7 @@ function ChatUsers() {
       Users on left
       <div>{isLoading && <p>Loading...</p>}</div>
 
-      {!isLoading && chatUsers && <div>{chatUsers.map((chat) => <p>{chat._id}</p>)}</div>}
+      {!isLoading && chatUsers && <div>{chatUsers.map((chat) => <p onClick={() => props.selectChatHandler(chat._id)}>{chat._id}</p>)}</div>}
     </div>
   );
 }

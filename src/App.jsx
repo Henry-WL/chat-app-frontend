@@ -10,7 +10,7 @@ function App() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="h-screen">
       <NavbarComponent />
       <Routes>
         <Route path="/" element={<Chat />} />
