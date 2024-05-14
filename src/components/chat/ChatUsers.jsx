@@ -20,7 +20,8 @@ function ChatUsers(props) {
       Users on left
       <div>{isLoading && <p>Loading...</p>}</div>
 
-      {!isLoading && chatUsers && <div>{chatUsers.map((chat) => <p onClick={() => props.selectChatHandler(chat._id)}>{chat._id}</p>)}</div>}
+      {/* username is on top level of object atm, will be nested later so will need to go into the array in db and find users in chat */}
+      {!isLoading && chatUsers && <div>{chatUsers.map((chat) => <p key={chat._id} onClick={() => props.selectChatHandler(chat._id)}>{chat.username}</p>)}</div>}
     </div>
   );
 }

@@ -5,6 +5,13 @@ import ChatInput from './ChatInput'
 function ChatMessages(props) {
     const [isLoading, setIsLoading] = useState(true)
     const [chatData, setChatData] = useState([])
+    const [newMessageSent, setNewMessageSent] = useState('')
+
+    const newMessageSentHandler = (textInput) => {
+        setNewMessageSent(textInput)
+    }
+
+
     // using route get chat id from url then load messages for specific chat
     useEffect(() => {
         const fetchChatData = async() => {
@@ -17,7 +24,7 @@ function ChatMessages(props) {
         }
 
         fetchChatData()
-    }, [props.chatId])
+    }, [props.chatId, newMessageSent])
 
   return (
     <div className='border-green-100 border-8 w-3/4 overflow-y-scroll flex flex-col'>
@@ -25,7 +32,7 @@ function ChatMessages(props) {
       {/* Chat messages */}
       {isLoading && <p>Loading</p>}
       {!isLoading && chatData && chatData.messages.map((chat) => (
-        <div className='border-pink-500 border m-2' key={chat.id}>
+        <div className='border-pink-500 border m-2' key={chat._id}>
           <p>{chat.sender}</p>
           <p>{chat.text}</p>
           <p>{chat.time}</p>
@@ -33,7 +40,7 @@ function ChatMessages(props) {
       ))}
     </div>
     <div className='bg-white p-4 border-blue-500 border-2'>
-      <ChatInput chatId={props.chatId}/>
+      <ChatInput chatId={props.chatId} newMessageSentHandler={newMessageSentHandler}/>
     </div>
   </div>
   )

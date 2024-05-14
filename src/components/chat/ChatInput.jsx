@@ -24,6 +24,7 @@ function ChatInput(props) {
     );
 
     setTextInput("");
+    props.newMessageSentHandler(textInput)
   };
 
   return (
