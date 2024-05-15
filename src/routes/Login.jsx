@@ -5,11 +5,18 @@ import { useNavigate } from 'react-router-dom'
 
 function login() {
     const [isSignup, setIsSignup] = useState(false)
+    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
     const {login, setIsLoggedIn} = useContext(authContext)
+
 
     const navigate = useNavigate()
 
-    const login_signupHandler = async () => {
+    const login_signupHandler = async (event) => {
+        event.preventDefault()
+
+
       console.log('clicked login signup')
       // const response = await fetch('http://localhost:3000/api/chats/')
       // const chats = await response.json()
@@ -27,9 +34,9 @@ function login() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            "email": "newfronten@x.com",
-            "username": "testingAuthContext!",
-            "password": "123456789"
+            "email": email,
+            "username": username,
+            "password": password
         })});
 
         // auth.login('kik')
@@ -44,8 +51,8 @@ function login() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            "email": "newfronten@x.com",
-            "password": "123456789"
+            "email": email,
+            "password": password
         })});
 
         const data = await response.json()
@@ -70,6 +77,8 @@ function login() {
   
     return (
       <>
+
+     
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img className="mx-auto h-10 w-auto" src="https://em-content.zobj.net/source/apple/391/man-technologist-medium-light-skin-tone_1f468-1f3fc-200d-1f4bb.png" alt="ChatApp"/>
@@ -77,13 +86,13 @@ function login() {
     </div>
   
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form className="space-y-6" action="#" method="POST">
+      <form className="space-y-6" onSubmit={login_signupHandler}>
         <div>
         <div className="flex items-center justify-between">
           <label for="email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           </div>
           <div className="mt-2">
-            <input id="email" name="email" type="email" autocomplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input id="email" name="email" type="email" autocomplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setEmail(e.target.value)} value={email}/>
           </div>
         </div>
   
@@ -92,7 +101,7 @@ function login() {
           <label for="username" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
           </div>
           <div className="mt-2">
-            <input id="username" name="username" type="text" autocomplete="username" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input id="username" name="username" type="text" autocomplete="username" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setUsername(e.target.value)} value={username}/>
           </div>
         </div>}
   
@@ -104,12 +113,12 @@ function login() {
             </div> */}
           </div>
           <div className="mt-2">
-            <input id="password" name="password" type="password" autocomplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+            <input id="password" name="password" type="password" autocomplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setPassword(e.target.value)} value={password}/>
           </div>
         </div>
   
         <div>
-          <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={login_signupHandler}>{isSignup ? 'Signup' : 'Login'}</button>
+          <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{isSignup ? 'Signup' : 'Login'}</button>
         </div>
       </form>
   
