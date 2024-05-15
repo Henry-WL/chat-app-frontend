@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
+import authContext from '../context/auth-context'
 
 function NavbarComponent() {
+
+    // const auth = useContext(authContext)
+    const {state} = useContext(authContext)
+    console.log(state)
+
+
   return (
     <>
 <div className="navbar bg-base-100">
@@ -40,7 +47,7 @@ function NavbarComponent() {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <a className="btn">{state.user}</a>
   </div>
 </div>
     <Outlet/>
