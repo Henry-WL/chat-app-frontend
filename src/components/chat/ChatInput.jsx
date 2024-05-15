@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import authContext from "../../context/auth-context";
 
 function ChatInput(props) {
   const [textInput, setTextInput] = useState("");
+  const auth = useContext(authContext)
+  console.log(auth)
 
   const submitFormHandler = async (e) => {
     e.preventDefault();
@@ -17,7 +20,7 @@ function ChatInput(props) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          sendinguserId: "663e856213f3ee53bd09e3e0",
+          sendinguserId: auth.userId,
           text: textInput,
         }),
       }
