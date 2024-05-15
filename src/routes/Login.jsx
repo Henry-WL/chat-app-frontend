@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react'
 import authContext from '../context/auth-context'
+import { useNavigate } from 'react-router-dom'
 
 
 function login() {
     const [isSignup, setIsSignup] = useState(false)
-    const {setUser} = useContext(authContext)
+    const {login, setIsLoggedIn} = useContext(authContext)
+
+    const navigate = useNavigate()
 
     const login_signupHandler = async () => {
       console.log('clicked login signup')
@@ -24,12 +27,13 @@ function login() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            "email": "newfrontend@x.com",
-            "username": "frontend!",
+            "email": "newfronten@x.com",
+            "username": "testingAuthContext!",
             "password": "123456789"
         })});
 
         // auth.login('kik')
+        
         
       } else {
         console.log('login')
@@ -40,15 +44,26 @@ function login() {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            "email": "newfrontend@x.com",
+            "email": "newfronten@x.com",
             "password": "123456789"
         })});
 
-        setUser('HHH')
+        const data = await response.json()
+
+        console.log(data, 'data')
+        login(data.token, data._id, data.username)
+        setIsLoggedIn(true)
+        navigate('/')
+        
+        
+        
+        // set context token, setlogin etc....
       }
   
     
       const user = await response.json()
+
+    //   setUser(user.username)
   
       console.log(user)
     }

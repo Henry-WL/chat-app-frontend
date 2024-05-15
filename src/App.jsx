@@ -6,21 +6,17 @@ import Chat from "./routes/Chat.jsx";
 import ErrorPage from "./error-page.jsx";
 import NavbarComponent from "./components/NavbarComponent.jsx";
 // import { AuthContext } from "./context/auth-context.jsx";
-import { AuthProvider } from "./context/auth-context.jsx";
+import authContext, { AuthProvider } from "./context/auth-context.jsx";
+import AuthenticatedRoutes from "./routes/AuthenticatedRoutes.jsx";
 
 function App() {
   const navigate = useNavigate();
 
-  return (
+return (
     <AuthProvider>
       <div className="h-screen">
         <NavbarComponent />
-        <Routes>
-          <Route path="/" element={<Chat />} />
-          <Route path="/login" element={<Login />} />
-          {/* Define other routes here */}
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <AuthenticatedRoutes/>
       </div>
       </AuthProvider>
 
