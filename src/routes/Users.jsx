@@ -24,7 +24,7 @@ function Users() {
     fetchUsers();
   }, []);
 
-  const addFriendHandler = async (authuid, uid) => {
+  const addFriendHandler = async (authuid, uid, loggedInUserUsername, addedUserUsername) => {
     console.log(authuid, uid)
 
     const response = await fetch(
@@ -37,7 +37,9 @@ function Users() {
           },
           body: JSON.stringify({
             loggedInUser: authuid,
+            loggedInUserUsername,
             addedUser: uid,
+            addedUserUsername
             // loggedInUser: authuid
           }),
         }
@@ -66,7 +68,7 @@ function Users() {
                 <h2 className="card-title">{user.email}</h2>
                 <p>{user.username}</p>
                 <div className="card-actions">
-                  {auth.userId !== user._id && <button className="btn btn-primary" onClick={() => addFriendHandler(auth.userId, user._id)}>Add Friend</button>}
+                  {auth.userId !== user._id && <button className="btn btn-primary" onClick={() => addFriendHandler(auth.userId, user._id, auth.username, user.username)}>Add Friend</button>}
                   <Link className="btn btn-primary" to={`/user/${user._id}`}>View profile</Link>
                 </div>
               </div>

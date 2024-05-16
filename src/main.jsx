@@ -4,7 +4,6 @@ import App from "./App.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Login from "./routes/Login.jsx";
-import Chat from "./routes/chat.jsx";
 import ErrorPage from "./error-page.jsx";
 import NavbarComponent from "./components/NavbarComponent.jsx";
 
