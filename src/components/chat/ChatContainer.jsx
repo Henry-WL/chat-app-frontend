@@ -9,7 +9,7 @@ function ChatContainer() {
         setChatId(chatId)
     }
   return (
-    <div className="flex h-full border-gray-100 border m-4">
+    <div className="flex h-[calc(100vh-120px)] border-gray-100 border m-4">
       <ChatUsers selectChatHandler={chatSelectHandler} chatId={chatId}/>
 
       <ChatMessages chatId={chatId}/>

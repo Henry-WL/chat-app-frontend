@@ -46,7 +46,7 @@ function ChatMessages(props) {
             ).slice(-2)}`;
             return (
               <div
-                className={` p-2 bg-neutral-100
+                className={` p-2
                   ${chat.sender._id === auth.userId
                     ? "chat chat-end"
                     : "chat chat-start"
