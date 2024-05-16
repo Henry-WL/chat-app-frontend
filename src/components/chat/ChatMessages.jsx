@@ -10,7 +10,7 @@ function ChatMessages(props) {
 
   const auth = useContext(authContext);
 
-  console.log(auth, "AUTH");
+//   console.log(auth, "AUTH");
 
   const newMessageSentHandler = (textInput) => {
     setNewMessageSent(textInput);
@@ -20,11 +20,11 @@ function ChatMessages(props) {
   useEffect(() => {
     const fetchChatData = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/chats/${props.chatId}`
+        `http://localhost:3000/api/chats/chatById/${props.chatId}`
       );
       const data = await response.json();
 
-      console.log(data);
+      console.log(data, 'chat DATA');
       setIsLoading(false);
       setChatData(data.chat);
     };
@@ -47,7 +47,7 @@ function ChatMessages(props) {
             return (
               <div
                 className={
-                  chat.sender === auth.userId
+                  chat.sender._id === auth.userId
                     ? "chat chat-end"
                     : "chat chat-start"
                 }
@@ -61,13 +61,13 @@ function ChatMessages(props) {
                   </div>
                 </div>
                 <div className="chat-header">
-                  {chat.sender}
+                  {chat.sender.username}
                   {/* get chatters name */}
                   <time className="text-xs opacity-50">{timeString}</time>
                 </div>
                 <div
                   className={
-                    chat.sender === auth.userId
+                    chat.sender._id === auth.userId
                       ? "chat-bubble chat-bubble-success"
                       : "chat-bubble chat-bubble-primary"
                   }
@@ -86,7 +86,7 @@ function ChatMessages(props) {
         />
       </div>
     </div>
-  );
+  )
 }
 
 export default ChatMessages;

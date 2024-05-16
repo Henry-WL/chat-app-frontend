@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import authContext from "../../context/auth-context";
 
 function ChatUsers(props) {
   const [chatUsers, setChatUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const auth = useContext(authContext)
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/api/chats");
+      const response = await fetch(`http://localhost:3000/api/chats/${auth.userId}`);
       const data = await response.json();
       console.log(data);
       setChatUsers(data.chats);

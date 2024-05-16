@@ -4,7 +4,7 @@ import authContext from "../../context/auth-context";
 function ChatInput(props) {
   const [textInput, setTextInput] = useState("");
   const auth = useContext(authContext)
-  console.log(auth)
+//   console.log(auth)
 
   const submitFormHandler = async (e) => {
     e.preventDefault();

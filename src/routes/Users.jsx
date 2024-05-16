@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import authContext from "../context/auth-context";
 
 function Users() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const auth = useContext(authContext)
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -19,6 +23,27 @@ function Users() {
 
     fetchUsers();
   }, []);
+
+  const addFriendHandler = async (authuid, uid) => {
+    console.log(authuid, uid)
+
+    const response = await fetch(
+        `http://localhost:3000/api/chats/createChat`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            loggedInUser: authuid,
+            addedUser: uid,
+            // loggedInUser: authuid
+          }),
+        }
+      );
+    
+  }
 
   return (
     <div className="flex flex-wrap p-5 gap-2 justify-center">
@@ -41,7 +66,8 @@ function Users() {
                 <h2 className="card-title">{user.email}</h2>
                 <p>{user.username}</p>
                 <div className="card-actions">
-                  <button className="btn btn-primary">Add Friend</button>
+                  {auth.userId !== user._id && <button className="btn btn-primary" onClick={() => addFriendHandler(auth.userId, user._id)}>Add Friend</button>}
+                  <Link className="btn btn-primary" to={`/user/${user._id}`}>View profile</Link>
                 </div>
               </div>
             </div>
