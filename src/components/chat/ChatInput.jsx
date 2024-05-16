@@ -31,10 +31,10 @@ function ChatInput(props) {
   };
 
   return (
-    <form className="flex" onSubmit={submitFormHandler}>
+    <form className="flex position" onSubmit={submitFormHandler}>
       <input
         placeholder="Send your message..."
-        className="w-full"
+        className="w-full focus:outline-none ="
         onChange={(e) => setTextInput(e.target.value)}
         value={textInput}
       />

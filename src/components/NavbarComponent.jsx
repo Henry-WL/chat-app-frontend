@@ -46,7 +46,7 @@ function NavbarComponent() {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
+            {/* <li>
               <a>Item 1</a>
             </li>
             <li>
@@ -61,15 +61,15 @@ function NavbarComponent() {
                   </li>
                 </ul>
               </details>
-            </li>
+            </li> */}
             <li>
-              <Link to={"/users"}>Users</Link>
+              <Link to={"/users"} className="btn">All Users</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
           {isLoggedIn && (
-            <a className="btn" onClick={() => logout()}>
+            <a className="btn m-2" onClick={() => logout()}>
               Logout
             </a>
           )}

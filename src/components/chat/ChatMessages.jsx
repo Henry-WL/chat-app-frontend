@@ -33,7 +33,7 @@ function ChatMessages(props) {
   }, [props.chatId, newMessageSent]);
 
   return (
-    <div className="border-green-100 border-8 w-3/4 overflow-y-scroll flex flex-col">
+    <div className="w-3/4 overflow-y-scroll flex flex-col">
       <div className="flex-1 relative">
         {/* Chat messages */}
         {isLoading && <p>Loading</p>}
@@ -46,11 +46,12 @@ function ChatMessages(props) {
             ).slice(-2)}`;
             return (
               <div
-                className={
-                  chat.sender._id === auth.userId
+                className={` p-2 bg-neutral-100
+                  ${chat.sender._id === auth.userId
                     ? "chat chat-end"
                     : "chat chat-start"
-                }
+                  }
+                `}
               >
                 <div className="chat-image avatar">
                   <div className="w-10 rounded-full">
@@ -60,16 +61,16 @@ function ChatMessages(props) {
                     />
                   </div>
                 </div>
-                <div className="chat-header">
+                <div className="chat-header p-1">
                   {chat.sender.username}
                   {/* get chatters name */}
-                  <time className="text-xs opacity-50">{timeString}</time>
+                  <time className="text-xs opacity-50"> {timeString}</time>
                 </div>
                 <div
                   className={
                     chat.sender._id === auth.userId
-                      ? "chat-bubble chat-bubble-success"
-                      : "chat-bubble chat-bubble-primary"
+                      ? "chat-bubble chat-bubble-success max-w-2xl"
+                      : "chat-bubble chat-bubble-primary max-w-2xl"
                   }
                 >
                   {chat.text}
@@ -79,7 +80,7 @@ function ChatMessages(props) {
             );
           })}
       </div>
-      <div className="bg-white p-4 border-blue-500 border-2">
+      <div className="bg-white p-4 ">
         <ChatInput
           chatId={props.chatId}
           newMessageSentHandler={newMessageSentHandler}
