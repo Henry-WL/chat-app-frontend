@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   const [token, setToken] = useState()
   const [userId, setUserId] = useState()
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
   const [username, setUsername] = useState()
 
   // Define functions to update the state

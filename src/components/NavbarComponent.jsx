@@ -4,8 +4,10 @@ import authContext from "../context/auth-context";
 
 function NavbarComponent() {
   // const auth = useContext(authContext)
-  const { username, isLoggedIn, logout } = useContext(authContext);
+  const { username, isLoggedIn, logout, userId } = useContext(authContext);
   // console.log(state)
+
+    // const auth = useContext(authContext)
 
   return (
     <>
@@ -71,7 +73,7 @@ function NavbarComponent() {
               Logout
             </a>
           )}
-          <a className="btn">{username}</a>
+          {userId && <Link className="btn" to={`/user/${userId}`}>{username}</Link>}
         </div>
       </div>
       <Outlet />

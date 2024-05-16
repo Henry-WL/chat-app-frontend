@@ -5,6 +5,7 @@ import Chat from './Chat'
 import Login from './Login'
 import ErrorPage from '../error-page'
 import Users from './Users'
+import SingleUserPage from './SingleUserPage'
 
 function AuthenticatedRoutes() {
     const navigate = useNavigate()
@@ -25,6 +26,7 @@ function AuthenticatedRoutes() {
     <Route path="/" element={<Chat />} />
     <Route path="/login" element={<Login />} />
     <Route path="/users" element={<Users/>} />
+    <Route path="/user/:userId" element={<SingleUserPage />}/>
     {/* Define other routes here */}
     <Route path="*" element={<ErrorPage />} />
   </Routes>
