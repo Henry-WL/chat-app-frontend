@@ -80,8 +80,8 @@ function ChatMessages(props) {
                 <div
                   className={
                     chat.sender._id === auth.userId
-                      ? "chat-bubble chat-bubble-success max-w-md"
-                      : "chat-bubble chat-bubble-primary max-w-2xl"
+                      ? "chat-bubble chat-bubble-primary opacity-50 max-w-md"
+                      : "chat-bubble chat-bubble-success opacity-80 text-white max-w-md"
                   }
                 >
                   {chat.text}

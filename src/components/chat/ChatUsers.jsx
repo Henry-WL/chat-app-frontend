@@ -45,7 +45,7 @@ function ChatUsers(props) {
       {!isLoading && chatUsers && (
         <div className="flex-col flex-wrap justify-center text-center">
           {chatUsers.map((chat) => (
-            <div className={` flex space-x-10 p-4 cursor-pointer ${props.chatId === chat._id ? "bg-lime-300" : "null"}`}    key={chat._id}
+            <div className={` flex space-x-10 p-4 cursor-pointer ${props.chatId === chat._id ? "bg-purple-100 border-purple-400 border-l-4" : "null"}`}    key={chat._id}
             onClick={() => props.selectChatHandler(chat._id)}>
               <div className="avatar online">
                 <div className="w-12 rounded-full">
