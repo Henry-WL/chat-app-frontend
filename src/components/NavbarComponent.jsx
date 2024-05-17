@@ -65,6 +65,7 @@ function NavbarComponent() {
             <li>
               <Link to={"/users"} className="btn">All Users</Link>
             </li>
+            {/* <input type="checkbox" value="dark" className="toggle theme-controller"/> */}
           </ul>
         </div>
         <div className="navbar-end">

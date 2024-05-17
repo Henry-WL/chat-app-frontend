@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 import authContext from "../../context/auth-context";
@@ -9,12 +9,18 @@ function ChatMessages(props) {
   const [newMessageSent, setNewMessageSent] = useState("");
 
   const auth = useContext(authContext);
+  const messagesEndRef = useRef(null)
 
 //   console.log(auth, "AUTH");
 
   const newMessageSentHandler = (textInput) => {
     setNewMessageSent(textInput);
   };
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
 
   // using route get chat id from url then load messages for specific chat
   useEffect(() => {
@@ -27,14 +33,19 @@ function ChatMessages(props) {
       console.log(data, 'chat DATA');
       setIsLoading(false);
       setChatData(data.chat);
+      scrollToBottom()
     };
 
     fetchChatData();
   }, [props.chatId, newMessageSent]);
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatData]);
+
   return (
-    <div className="w-3/4 overflow-y-scroll flex flex-col">
-      <div className="flex-1 relative">
+    <div className="w-3/4 flex flex-col bg-gray-50">
+      <div className="flex-1 relative overflow-y-auto">
         {/* Chat messages */}
         {isLoading && <p>Loading</p>}
         {!isLoading &&
@@ -69,7 +80,7 @@ function ChatMessages(props) {
                 <div
                   className={
                     chat.sender._id === auth.userId
-                      ? "chat-bubble chat-bubble-success max-w-2xl"
+                      ? "chat-bubble chat-bubble-success max-w-md"
                       : "chat-bubble chat-bubble-primary max-w-2xl"
                   }
                 >
@@ -79,6 +90,7 @@ function ChatMessages(props) {
               </div>
             );
           })}
+          <div ref={messagesEndRef} />
       </div>
       <div className="bg-white p-4 ">
         <ChatInput
