@@ -30,6 +30,8 @@ function ChatInput(props) {
     props.newMessageSentHandler(textInput)
   };
 
+//   Add Fiile upload
+
   return (
     <form className="flex position" onSubmit={submitFormHandler}>
       <input
