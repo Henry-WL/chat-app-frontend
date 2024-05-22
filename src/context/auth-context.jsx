@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
 
   // Pass the state and functions through the context
   return (
-    <authContext.Provider value={{ state, login, setIsLoggedIn, isLoggedIn, username, logout, userId }}>
+    <authContext.Provider value={{ state, login, setIsLoggedIn, isLoggedIn, username, logout, userId, setUsername }}>
       {children}
     </authContext.Provider>
   );

@@ -5,6 +5,8 @@ import authContext from "../context/auth-context";
 function singleUserPage() {
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [username, setUsername] = useState('')
+  const [userUpdated, setUserUpdated] = useState(0)
 
   const { userId } = useParams();
 
@@ -26,7 +28,37 @@ function singleUserPage() {
     };
 
     fetchSingleUser();
-  }, []);
+  }, [userUpdated]);
+
+  const formSubmitHandler = async (e) => {
+    e.preventDefault()
+    console.log('first')
+
+    // const response = await fetch(`http://localhost:3000/api/users/${userId}`)
+
+    const response = await fetch(
+      `http://localhost:3000/api/users/${userId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // sendinguserId: auth.userId,
+          username: username,
+        }),
+      }
+    );
+
+    setUsername('')
+
+    auth.setUsername(username)
+
+    console.log(response)
+
+    setUserUpdated(userUpdated => userUpdated +1)
+  }
 
   return (
     <div className="flex justify-center p-10">
@@ -48,6 +80,7 @@ function singleUserPage() {
               {/* <button className="btn btn-primary">Add Friend</button> */}
 
               {auth.userId === userId && (
+                <form onSubmit={formSubmitHandler}>
                 <div>
                   <label className="input input-bordered flex items-center gap-2">
                     <svg
@@ -73,7 +106,9 @@ function singleUserPage() {
                     <input
                       type="text"
                       className="grow"
-                      placeholder="Username"
+                      placeholder={user.username}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
                     />
                   </label>
                   <label className="input input-bordered flex items-center gap-2">
@@ -92,8 +127,9 @@ function singleUserPage() {
                     <input type="password" className="grow" value="password" />
                   </label>
 
-                  <button className="btn btn-primary m-2">Update</button>
+                  <button className="btn btn-primary m-2" type="submit">Update</button>
                 </div>
+                </form>
               )}
             </div>
           </div>

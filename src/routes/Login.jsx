@@ -82,7 +82,7 @@ function login() {
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img className="mx-auto h-10 w-auto" src="https://em-content.zobj.net/source/apple/391/man-technologist-medium-light-skin-tone_1f468-1f3fc-200d-1f4bb.png" alt="ChatApp"/>
-      <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">ChatMe</h2>
+      <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900" >ChatMe</h2>
     </div>
   
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
