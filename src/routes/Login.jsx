@@ -74,6 +74,14 @@ function login() {
   
       console.log(user)
     }
+
+    const loginAsGuestHandler = () => {
+      setIsSignup(false)
+      setEmail('yf@x.com')
+      setPassword('123456789')
+
+      login_signupHandler()
+    }
   
     return (
       <>
@@ -119,6 +127,8 @@ function login() {
   
         <div>
           <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{isSignup ? 'Signup' : 'Login'}</button>
+          <button type="submit" className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-2" onClick={loginAsGuestHandler}>Login as guest</button>
+
         </div>
       </form>
   

@@ -82,7 +82,7 @@ function singleUserPage() {
               {auth.userId === userId && (
                 <form onSubmit={formSubmitHandler}>
                   <div>
-                    <label className="input input-bordered flex items-center gap-2">
+                    <label className="input input-bordered flex items-center gap-2 mt-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"
@@ -100,7 +100,7 @@ function singleUserPage() {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </label>
-                    <label className="input input-bordered flex items-center gap-2">
+                    <label className="input input-bordered flex items-center gap-2 mt-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"
@@ -117,7 +117,7 @@ function singleUserPage() {
                         onChange={(e) => setUsername(e.target.value)}
                       />
                     </label>
-                    <label className="input input-bordered flex items-center gap-2">
+                    <label className="input input-bordered flex items-center gap-2 mt-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"

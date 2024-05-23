@@ -55,7 +55,7 @@ function ChatUsers(props) {
               <button
              
               >
-                {chat.users[1].username}
+                {chat.users[1].user === auth.userId ? chat.users[0].username : chat.users[1].username}
               </button>
             </div>
           ))}
