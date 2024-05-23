@@ -12,6 +12,8 @@ function singleUserPage() {
 
   const auth = useContext(authContext);
 
+  console.log(auth)
+
   useEffect(() => {
     const fetchSingleUser = async () => {
       const response = await fetch(`http://localhost:3000/api/users/${userId}`);
@@ -35,12 +37,14 @@ function singleUserPage() {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        Authorization: 'Bearer ' + auth.token
       },
       body: JSON.stringify({
         // sendinguserId: auth.userId,
         email: email,
         username: username,
       }),
+      
     });
     // setIsLoading(true);
     setEmail("");

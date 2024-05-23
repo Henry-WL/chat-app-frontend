@@ -24,7 +24,14 @@ function Users() {
 
     const fetchChats = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/chats/${auth.userId}`
+        `http://localhost:3000/api/chats/${auth.userId}`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token,
+          },
+        }
       );
       const data = await response.json();
       // console.log(data.chats);
@@ -38,10 +45,10 @@ function Users() {
   }, []);
 
   const handleDisableButton = (e) => {
-    console.log('first')
+    console.log("first");
     e.currentTarget.disabled = true;
-    console.log('clicked')
-  }
+    console.log("clicked");
+  };
 
   const addFriendHandler = async (
     authuid,
@@ -56,6 +63,7 @@ function Users() {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        Authorization: "Bearer " + auth.token,
       },
       body: JSON.stringify({
         loggedInUser: authuid,
@@ -109,7 +117,16 @@ function Users() {
                     <button
                       className="btn btn-primary"
                       disabled={disabled}
-                      onClick={(e) => {addFriendHandler(auth.userId, user._id, auth.username, user.username); handleDisableButton(e)}}>
+                      onClick={(e) => {
+                        addFriendHandler(
+                          auth.userId,
+                          user._id,
+                          auth.username,
+                          user.username
+                        );
+                        handleDisableButton(e);
+                      }}
+                    >
                       Add Friend
                     </button>
                   )}

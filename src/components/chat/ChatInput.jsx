@@ -18,6 +18,7 @@ function ChatInput(props) {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
         },
         body: JSON.stringify({
           sendinguserId: auth.userId,

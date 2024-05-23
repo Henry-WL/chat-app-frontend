@@ -26,8 +26,16 @@ function ChatMessages(props) {
   useEffect(() => {
     const fetchChatData = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/chats/chatById/${props.chatId}`
+        `http://localhost:3000/api/chats/chatById/${props.chatId}`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token,
+          },
+        }
       );
+      
       const data = await response.json();
 
       console.log(data, 'chat DATA');

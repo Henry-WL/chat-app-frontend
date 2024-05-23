@@ -5,15 +5,23 @@ import authContext from "../../context/auth-context";
 function ChatUsers(props) {
   const [chatUsers, setChatUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [clickedChatStyle, setClickedChatStyle] = useState()
+  const [clickedChatStyle, setClickedChatStyle] = useState();
 
   const auth = useContext(authContext);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/chats/${auth.userId}`
+        `http://localhost:3000/api/chats/${auth.userId}`,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token,
+          },
+        }
       );
+
       const data = await response.json();
       console.log(data);
       //   console.log('running!!!!')
@@ -35,7 +43,7 @@ function ChatUsers(props) {
   //     }
   // }
 
-  console.log(props.chatId, 'chat users')
+  console.log(props.chatId, "chat users");
 
   return (
     <div className="border-gray-100 border-r w-1/4 overflow-y-scroll">
@@ -45,17 +53,24 @@ function ChatUsers(props) {
       {!isLoading && chatUsers && (
         <div className="flex-col flex-wrap justify-center text-center">
           {chatUsers.map((chat) => (
-            <div className={` flex space-x-10 p-4 cursor-pointer ${props.chatId === chat._id ? "bg-purple-100 border-purple-400 border-l-4" : "null"}`}    key={chat._id}
-            onClick={() => props.selectChatHandler(chat._id)}>
+            <div
+              className={` flex space-x-10 p-4 cursor-pointer ${
+                props.chatId === chat._id
+                  ? "bg-purple-100 border-purple-400 border-l-4"
+                  : "null"
+              }`}
+              key={chat._id}
+              onClick={() => props.selectChatHandler(chat._id)}
+            >
               <div className="avatar online">
                 <div className="w-12 rounded-full">
                   <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                 </div>
               </div>
-              <button
-             
-              >
-                {chat.users[1].user === auth.userId ? chat.users[0].username : chat.users[1].username}
+              <button>
+                {chat.users[1].user === auth.userId
+                  ? chat.users[0].username
+                  : chat.users[1].username}
               </button>
             </div>
           ))}
