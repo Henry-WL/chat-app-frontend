@@ -7,6 +7,7 @@ function singleUserPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
 
   const { userId } = useParams();
 
@@ -43,6 +44,7 @@ function singleUserPage() {
         // sendinguserId: auth.userId,
         email: email,
         username: username,
+        password: password
       }),
       
     });
@@ -137,7 +139,8 @@ function singleUserPage() {
                       <input
                         type="password"
                         className="grow"
-                        // value="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         placeholder=""
                       />
                     </label>

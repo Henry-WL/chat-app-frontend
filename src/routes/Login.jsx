@@ -100,7 +100,7 @@ function login() {
           <label for="email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           </div>
           <div className="mt-2">
-            <input id="email" name="email" type="email" autocomplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setEmail(e.target.value)} value={email}/>
+            <input id="email" name="email" type="email" autocomplete="email" required className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setEmail(e.target.value)} value={email}/>
           </div>
         </div>
   
@@ -109,7 +109,7 @@ function login() {
           <label for="username" className="block text-sm font-medium leading-6 text-gray-900">Username</label>
           </div>
           <div className="mt-2">
-            <input id="username" name="username" type="text" autocomplete="username" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setUsername(e.target.value)} value={username}/>
+            <input id="username" name="username" type="text" autocomplete="username" required className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setUsername(e.target.value)} value={username}/>
           </div>
         </div>}
   
@@ -121,7 +121,7 @@ function login() {
             </div> */}
           </div>
           <div className="mt-2">
-            <input id="password" name="password" type="password" autocomplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setPassword(e.target.value)} value={password}/>
+            <input id="password" name="password" type="password" autocomplete="current-password" required className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" onChange={(e) => setPassword(e.target.value)} value={password}/>
           </div>
         </div>
   
