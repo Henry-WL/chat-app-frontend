@@ -1,6 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import authContext from "../../context/auth-context";
-// import chat from "../../../../../Backend/models/chat";
+import { IoMdStarOutline } from "react-icons/io";
+import { BsSend } from "react-icons/bs";
+import { CiFileOn } from "react-icons/ci";
+import { MdErrorOutline } from "react-icons/md";
+import { IoTrashOutline } from "react-icons/io5";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ChatUsers(props) {
   const [chatUsers, setChatUsers] = useState([]);
@@ -45,9 +52,22 @@ function ChatUsers(props) {
 
   console.log(props.chatId, "chat users");
 
+  const notify = () =>
+    toast.error("This icon is for display purposes only", {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      // transition: Bounce,
+    });
+
   return (
-    <div className="border-gray-100 border-r w-1/4 overflow-y-scroll">
-      <div>{isLoading && <p>Loading...</p>}</div>
+    <div className="flex flex-col h-full border-gray-100 border-r w-1/4">
+      <div className="flex-1 overflow-y-scroll">{isLoading && <p>Loading...</p>}
 
       {/* username is on top level of object atm, will be nested later so will need to go into the array in db and find users in chat */}
       {!isLoading && chatUsers && (
@@ -76,7 +96,41 @@ function ChatUsers(props) {
           ))}
         </div>
       )}
+      </div>
       {/* <button className="btn">Button</button> */}
+      <div className="w-full p-4 flex justify-center">
+        <div className="p-2">
+          <IoMdStarOutline
+            className="h-6 w-6 cursor-pointer"
+            onClick={notify}
+          />
+        </div>
+        <div className="p-2">
+          <BsSend className="h-6 w-6 cursor-pointer" onClick={notify} />
+        </div>
+        <div className="p-2">
+          <CiFileOn className="h-6 w-6 cursor-pointer" onClick={notify} />
+        </div>
+        <div className="p-2">
+          <MdErrorOutline className="h-6 w-6 cursor-pointer" onClick={notify} />
+        </div>
+        <div className="p-2">
+          <IoTrashOutline className="h-6 w-6 cursor-pointer" onClick={notify} />
+        </div>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          // transition: Bounce,
+        />
+      </div>
     </div>
   );
 }
