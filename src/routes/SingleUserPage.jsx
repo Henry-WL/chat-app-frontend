@@ -141,7 +141,7 @@ function singleUserPage() {
                         className="grow"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder=""
+                        // placeholder="........"
                       />
                     </label>
 

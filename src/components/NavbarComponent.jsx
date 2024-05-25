@@ -7,7 +7,7 @@ function NavbarComponent() {
   const { username, isLoggedIn, logout, userId } = useContext(authContext);
   // console.log(state)
 
-    // const auth = useContext(authContext)
+    const auth = useContext(authContext)
 
   return (
     <>
@@ -63,7 +63,7 @@ function NavbarComponent() {
               </details>
             </li> */}
             <li>
-              <Link to={"/users"} className="btn">All Users</Link>
+              {auth.userId && <Link to={"/users"} className="btn">All Users</Link>}
             </li>
             {/* <input type="checkbox" value="dark" className="toggle theme-controller"/> */}
           </ul>
