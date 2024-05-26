@@ -106,9 +106,6 @@ function ChatUsers(props) {
           />
         </div>
         <div className="p-2">
-          <BsSend className="h-6 w-6 cursor-pointer" onClick={notify} />
-        </div>
-        <div className="p-2">
           <CiFileOn className="h-6 w-6 cursor-pointer" onClick={notify} />
         </div>
         <div className="p-2">
