@@ -15,7 +15,7 @@ function singleUserPage() {
 
   useEffect(() => {
     const fetchSingleUser = async () => {
-      const response = await fetch(`http://localhost:3000/api/users/${userId}`);
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}`);
 
       const data = await response.json();
 
@@ -29,7 +29,7 @@ function singleUserPage() {
   const formSubmitHandler = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",

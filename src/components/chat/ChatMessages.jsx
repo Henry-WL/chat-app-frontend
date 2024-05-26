@@ -24,7 +24,7 @@ function ChatMessages(props) {
   useEffect(() => {
     const fetchChatData = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/chats/chatById/${props.chatId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/chats/chatById/${props.chatId}`,
         {
           headers: {
             Accept: "application/json",

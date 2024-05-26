@@ -16,7 +16,7 @@ function login() {
 
     let response;
     if (isSignup) {
-      response = await fetch("http://localhost:3000/api/users/signup", {
+      response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/signup`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -31,7 +31,7 @@ function login() {
 
       // auth.login('user')
     } else {
-      response = await fetch("http://localhost:3000/api/users/login", {
+      response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/login`, {
         method: "POST",
         headers: {
           Accept: "application/json",

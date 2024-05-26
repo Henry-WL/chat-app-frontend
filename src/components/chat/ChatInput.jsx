@@ -10,7 +10,7 @@ function ChatInput(props) {
     e.preventDefault();
 
     const response = await fetch(
-      `http://localhost:3000/api/chats/${props.chatId}`,
+      `${import.meta.env.VITE_BACKEND_URL}/chats/${props.chatId}`,
       {
         method: "POST",
         headers: {

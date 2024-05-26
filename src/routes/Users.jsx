@@ -11,7 +11,7 @@ function Users() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch("http://localhost:3000/api/users/");
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/`);
 
       const data = await response.json();
 
@@ -22,7 +22,7 @@ function Users() {
 
     const fetchChats = async () => {
       const response = await fetch(
-        `http://localhost:3000/api/chats/${auth.userId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/chats/${auth.userId}`,
         {
           headers: {
             Accept: "application/json",
@@ -50,7 +50,7 @@ function Users() {
     loggedInUserUsername,
     addedUserUsername
   ) => {
-    const response = await fetch(`http://localhost:3000/api/chats/createChat`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/chats/createChat`, {
       method: "POST",
       headers: {
         Accept: "application/json",
