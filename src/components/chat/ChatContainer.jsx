@@ -5,7 +5,6 @@ import ChatMessages from "./ChatMessages";
 function ChatContainer() {
     const [chatId, setChatId] = useState('')
     const chatSelectHandler = (chatId) => {
-        console.log(chatId)
         setChatId(chatId)
     }
   return (

@@ -20,8 +20,9 @@ function AuthenticatedRoutes() {
     }, [isLoggedIn, navigate])
 
 
-    // check local storage to see if browser has token info already
-  return (
+   // check local storage to see if browser has token info already
+  
+    return (
     <Routes>
     <Route path="/" element={<Chat />} />
     <Route path="/login" element={<Login />} />

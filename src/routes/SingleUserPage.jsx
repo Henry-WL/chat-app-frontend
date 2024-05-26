@@ -7,21 +7,17 @@ function singleUserPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
   const { userId } = useParams();
 
   const auth = useContext(authContext);
-
-  console.log(auth)
 
   useEffect(() => {
     const fetchSingleUser = async () => {
       const response = await fetch(`http://localhost:3000/api/users/${userId}`);
 
       const data = await response.json();
-
-      console.log(data.user[0]);
 
       setUser(data.user[0]);
       setIsLoading(false);
@@ -38,15 +34,14 @@ function singleUserPage() {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: 'Bearer ' + auth.token
+        Authorization: "Bearer " + auth.token,
       },
       body: JSON.stringify({
         // sendinguserId: auth.userId,
         email: email,
         username: username,
-        password: password
+        password: password,
       }),
-      
     });
     // setIsLoading(true);
     setEmail("");
@@ -57,9 +52,6 @@ function singleUserPage() {
     }
 
     const data = await response.json();
-
-    console.log(data.user);
-    // console.log(data.user[0])
 
     setUser(data.user);
 
@@ -141,7 +133,6 @@ function singleUserPage() {
                         className="grow"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        // placeholder="........"
                       />
                     </label>
 

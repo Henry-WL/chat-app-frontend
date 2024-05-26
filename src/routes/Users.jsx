@@ -15,8 +15,6 @@ function Users() {
 
       const data = await response.json();
 
-      // console.log(data.users);
-
       setUsers(data.users);
 
       setIsLoading(false);
@@ -34,8 +32,6 @@ function Users() {
         }
       );
       const data = await response.json();
-      // console.log(data.chats);
-      //   console.log('running!!!!')
       setChats(data.chats);
       setIsLoading(false);
     };
@@ -45,9 +41,7 @@ function Users() {
   }, []);
 
   const handleDisableButton = (e) => {
-    console.log("first");
     e.currentTarget.disabled = true;
-    console.log("clicked");
   };
 
   const addFriendHandler = async (
@@ -56,8 +50,6 @@ function Users() {
     loggedInUserUsername,
     addedUserUsername
   ) => {
-    console.log(authuid, uid);
-
     const response = await fetch(`http://localhost:3000/api/chats/createChat`, {
       method: "POST",
       headers: {
@@ -75,17 +67,6 @@ function Users() {
     });
   };
 
-  // if (!isLoading && chats.length !== 0 && users.length !== 0) {
-  //   for (let i = 0; i< chats.length; i++) {
-  //     // console.log(chats[i].users)
-  //     // if (chats[i].)
-  //     if (chats[i].users.find(u => u.user === auth.userId)) {
-  //       console.log(i, 'chat pos')
-  //     }
-  //   }
-
-  // }
-
   return (
     <div className="flex flex-wrap p-5 gap-2 justify-center">
       {/* Users */}
@@ -93,7 +74,6 @@ function Users() {
       {!isLoading &&
         users &&
         users.map((user, index) => {
-          // console.log(user);
           let disabled = false;
           for (let i = 0; i < chats.length; i++) {
             if (chats[i].users.find((u) => u.user === user._id)) {

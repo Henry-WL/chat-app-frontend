@@ -5,12 +5,9 @@ import { IoSend } from "react-icons/io5";
 function ChatInput(props) {
   const [textInput, setTextInput] = useState("");
   const auth = useContext(authContext)
-//   console.log(auth)
 
   const submitFormHandler = async (e) => {
     e.preventDefault();
-
-    console.log("submit message");
 
     const response = await fetch(
       `http://localhost:3000/api/chats/${props.chatId}`,

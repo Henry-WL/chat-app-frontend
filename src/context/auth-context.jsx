@@ -1,14 +1,5 @@
 import { createContext, useState } from "react";
 
-// export const AuthContext = createContext({
-//   // isLoggedIn: false,
-//   // userId: null,
-//   // token: null,
-//   // login: () => {},
-//   // logout: () => {},
-//   user: 'John'
-// });
-
 const authContext = createContext()
 
 export const AuthProvider = ({ children }) => {
@@ -24,16 +15,9 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true)
   const [username, setUsername] = useState()
 
-  // Define functions to update the state
-  const incrementCounter = () => {
-    setState(prevState => ({
-      ...prevState,
-      counter: prevState.counter + 1,
-    }));
-  };
+  // functions to update the state
 
   const setUser = (user) => {
-    console.log(user)
     setState({
       user:user
     })
@@ -63,7 +47,6 @@ export const AuthProvider = ({ children }) => {
 
 
 
-  // Pass the state and functions through the context
   return (
     <authContext.Provider value={{ state, login, setIsLoggedIn, isLoggedIn, username, logout, userId, setUsername, token }}>
       {children}

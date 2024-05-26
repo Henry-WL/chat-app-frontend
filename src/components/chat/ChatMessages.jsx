@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 import authContext from "../../context/auth-context";
 
@@ -11,7 +10,6 @@ function ChatMessages(props) {
   const auth = useContext(authContext);
   const messagesEndRef = useRef(null)
 
-//   console.log(auth, "AUTH");
 
   const newMessageSentHandler = (textInput) => {
     setNewMessageSent(textInput);
@@ -38,7 +36,6 @@ function ChatMessages(props) {
       
       const data = await response.json();
 
-      console.log(data, 'chat DATA');
       setIsLoading(false);
       setChatData(data.chat);
       scrollToBottom()
@@ -83,13 +80,12 @@ function ChatMessages(props) {
                 </div>
                 <div className="chat-header p-1">
                   {chat.sender.username}
-                  {/* get chatters name */}
                   <time className="text-xs opacity-50"> {timeString}</time>
                 </div>
                 <div
                   className={
                     chat.sender._id === auth.userId
-                      ? "chat-bubble chat-bubble-primary opacity-50 max-w-md"
+                      ? "chat-bubble chat-bubble-primary opacity-50 text-white max-w-md"
                       : "chat-bubble chat-bubble-success opacity-80 text-white max-w-md"
                   }
                 >
