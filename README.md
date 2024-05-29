@@ -41,6 +41,8 @@ The app is designed to be responsive across various devices, including desktops,
 
 <img width="1725" alt="Screenshot 2024-05-29 at 15 56 02" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/9fa95685-9832-44cc-b8de-1786b0315142">
 
+<img width="1725" alt="Screenshot 2024-05-29 at 15 58 56" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/0d116541-98a6-43d8-bd72-ae6fdfd24e6b">
+
 <img width="1725" alt="Screenshot 2024-05-29 at 15 55 18" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/ce291c9e-83d4-4e36-b4c1-021123034a57">
 
 <img width="1725" alt="Screenshot 2024-05-29 at 15 56 30" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/57a92dea-d09c-4673-9f77-118f9f3f7ef2">
