@@ -6,3 +6,67 @@
 
 ## Demo video
 
+https://streamable.com/zm1cm5 
+
+## Table of Contents
+- [About The Project](#about-the-project)
+- [Key Features](#key-features)
+- [Demo Pictures](#demo-pictures)
+- [Contact](#contact)
+
+## About The Project
+
+'ChatMe' is a full stack application allowing users to sign-up and add users to chat to in real-time. The application is fully responsive allowing use on mobile and desktop.
+
+#### Built With
+
+#### - React.js, Tailwind and DaisyUI
+
+## Key Features
+
+#### Authentication and Authorization with JWTs
+The ChatMe app implements authentication and authorization using JSON Web Tokens (JWTs). Upon login, the backend auth server issues a JWT, which is stored on the client-side. This token is sent in the request headers for routes that require authentication, ensuring secure access to protected resources.
+
+#### Real-time Chat
+Chatting with other users is the one of the key components of the app. After adding a user as a friend the two users can chat to each other in private. Other users will not be able to see their chat.
+
+#### Editing Profile
+Users can edit their own profile if they are logged in, changing their username, email and password are all available, all updates are shown in real time. If a user edits their username this will update across their chats.
+
+#### Responsive Design
+The app is designed to be responsive across various devices, including desktops, tablets, and smartphones. This ensures optimal usability and accessibility regardless of screen size or device type.
+
+## Demo Pictures
+
+
+<img width="1725" alt="Screenshot 2024-05-29 at 15 56 02" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/9fa95685-9832-44cc-b8de-1786b0315142">
+
+<img width="1725" alt="Screenshot 2024-05-29 at 15 55 18" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/ce291c9e-83d4-4e36-b4c1-021123034a57">
+
+<img width="1725" alt="Screenshot 2024-05-29 at 15 56 30" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/57a92dea-d09c-4673-9f77-118f9f3f7ef2">
+
+<img width="1725" alt="Screenshot 2024-05-29 at 15 56 54" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/ca3f713f-3540-4417-bf5b-5dc86730e8fd">
+
+<img width="1725" alt="Screenshot 2024-05-29 at 15 57 15" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/063e4ed3-2e22-48ba-a53c-00ad6312a0f0">
+
+
+## Local install and setup
+
+- Clone git repository to your local machine, install dependencies with npm install
+
+- You will need the URL of your backend whether this is being run locally or on a server is up to you
+
+- Create a .env file in the top level of the cloned repo
+
+- Add the following variables to the env file and add the required keys / URLS
+
+  VITE_BACKEND_URL=http://localhost:5001/api
+
+- Run npm start to start the application
+
+## Contact
+
+[LinkedIn](https://www.linkedin.com/in/henry-westhoff-lewis-b18a91196/)
+
+
+
