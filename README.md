@@ -11,7 +11,8 @@ https://streamable.com/rnj0br
 ## Table of Contents
 - [About The Project](#about-the-project)
 - [Key Features](#key-features)
-- [Demo Pictures](#demo-pictures)
+- [Demo Screenshots](#demo-screenshots)
+- [Mobile Screenshots](#mobile-screenshots)
 - [Contact](#contact)
 
 ## About The Project
@@ -51,7 +52,7 @@ The app is designed to be responsive across various devices, including desktops,
 
 <img width="1725" alt="Screenshot 2024-05-29 at 15 57 15" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/063e4ed3-2e22-48ba-a53c-00ad6312a0f0">
 
-# Mobile Screenshots
+## Mobile Screenshots
 
 <img width="376" alt="Screenshot 2024-05-30 at 22 58 47" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/09cd5e06-0c12-476b-99e9-ef0b316e5183">
 <img width="377" alt="Screenshot 2024-05-30 at 22 58 18" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/33cf63d6-1e07-445c-8d5b-b1816b8e9267">
