@@ -36,7 +36,7 @@ Users can edit their own profile if they are logged in, changing their username,
 #### Responsive Design
 The app is designed to be responsive across various devices, including desktops, tablets, and smartphones. This ensures optimal usability and accessibility regardless of screen size or device type.
 
-## Demo Pictures
+## Demo Screenshots
 
 
 <img width="1725" alt="Screenshot 2024-05-29 at 15 56 02" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/9fa95685-9832-44cc-b8de-1786b0315142">
@@ -50,6 +50,16 @@ The app is designed to be responsive across various devices, including desktops,
 <img width="1725" alt="Screenshot 2024-05-29 at 15 56 54" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/ca3f713f-3540-4417-bf5b-5dc86730e8fd">
 
 <img width="1725" alt="Screenshot 2024-05-29 at 15 57 15" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/063e4ed3-2e22-48ba-a53c-00ad6312a0f0">
+
+# Mobile Screenshots
+
+<img width="375" alt="Screenshot 2024-05-30 at 23 00 34" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/7fc08394-080f-4785-97eb-91c1109b3da1">
+<img width="379" alt="Screenshot 2024-05-30 at 23 00 20" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/5c05ff9f-3027-4fd2-8d8e-62172e2a92fc">
+<img width="378" alt="Screenshot 2024-05-30 at 23 00 06" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/be9c1a8d-f97a-409d-bbc8-227ac45bdbcf">
+<img width="378" alt="Screenshot 2024-05-30 at 22 59 44" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/abaa73f5-0131-4496-a304-91e3b086f589">
+<img width="376" alt="Screenshot 2024-05-30 at 22 58 47" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/09cd5e06-0c12-476b-99e9-ef0b316e5183">
+<img width="377" alt="Screenshot 2024-05-30 at 22 58 18" src="https://github.com/BulletToothTony/chat-app-frontend/assets/58192857/33cf63d6-1e07-445c-8d5b-b1816b8e9267">
+
 
 
 ## Local install and setup
