@@ -6,7 +6,7 @@
 
 ## Demo video
 
-https://streamable.com/rnj0br
+https://streamable.com/cn9d9j
 
 ## Table of Contents
 - [About The Project](#about-the-project)
